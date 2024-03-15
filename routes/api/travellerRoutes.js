@@ -36,16 +36,16 @@ router.post('/seed', (req, res) => {
   // This could also be moved to a separate Node.js script to ensure it only happens once
   Traveller.bulkCreate([
     {
-      "name": "Sal",
-      "email": "sal@hotmail.com"
+      name: "Sal",
+      email: "sal@hotmail.com"
     },
     {
-      "name": "Lernantino",
-      "email": "lernantino@gmail.com"
+      name: "Lernantino",
+      email: "lernantino@gmail.com"
     },
     {
-      "name": "Amiko",
-      "email": "amiko2k20@aol.com"
+      name: "Amiko",
+      email: "amiko2k20@aol.com"
     }
   ])
     .then(() => {

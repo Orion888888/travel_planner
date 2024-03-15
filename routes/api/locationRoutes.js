@@ -36,19 +36,19 @@ router.post('/seed', (req, res) => {
   // This could also be moved to a separate Node.js script to ensure it only happens once
   Location.bulkCreate([
     {
-      "location_name": "London"
+      location_name: "London"
     },
     {
-      "location_name": "Paris"
+      location_name: "Paris"
     },
     {
-      "location_name": "Pismo Beach"
+      location_name: "Pismo Beach"
     },
     {
-      "location_name": "Miami"
+      location_name: "Miami"
     },
     {
-      "location_name": "Austin"
+      location_name: "Austin"
     }
   ])
     .then(() => {
