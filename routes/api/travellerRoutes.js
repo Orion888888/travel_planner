@@ -30,6 +30,32 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// create multiple traveller routes
+router.post('/seed', (req, res) => {
+  // Multiple rows can be created with `bulkCreate()` and an array
+  // This could also be moved to a separate Node.js script to ensure it only happens once
+  Traveller.bulkCreate([
+    {
+      "name": "Sal",
+      "email": "sal@hotmail.com"
+    },
+    {
+      "name": "Lernantino",
+      "email": "lernantino@gmail.com"
+    },
+    {
+      "name": "Amiko",
+      "email": "amiko2k20@aol.com"
+    }
+  ])
+    .then(() => {
+      res.send('Database seeded!');
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 // CREATE a traveller
 router.post('/', async (req, res) => {
   try {

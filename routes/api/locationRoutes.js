@@ -30,6 +30,35 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+//create multiple locations
+router.post('/seed', (req, res) => {
+  // Multiple rows can be created with `bulkCreate()` and an array
+  // This could also be moved to a separate Node.js script to ensure it only happens once
+  Location.bulkCreate([
+    {
+      "location_name": "London"
+    },
+    {
+      "location_name": "Paris"
+    },
+    {
+      "location_name": "Pismo Beach"
+    },
+    {
+      "location_name": "Miami"
+    },
+    {
+      "location_name": "Austin"
+    }
+  ])
+    .then(() => {
+      res.send('Database seeded!');
+    })
+    .catch((err) => {
+      res.json(err);
+    });
+});
+
 // CREATE a location
 router.post('/', async (req, res) => {
   try {
